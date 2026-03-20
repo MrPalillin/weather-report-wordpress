@@ -21,7 +21,7 @@ async function setForecast() {
     const city = JSON.parse(element);
 
     try {
-        const res = await fetch(`wp-content/plugins/weather-widget/forecast.php?lat=${city.lat}&lon=${city.lon}`);
+        const res = await fetch(`wp-content/plugins/weather-report-wordpress/includes/forecast.php?lat=${city.lat}&lon=${city.lon}`);
 
         const data = await res.json();
 
@@ -68,7 +68,7 @@ async function updateList() {
 
     try {
 
-        const data = await fetch("wp-content/plugins/weather-widget/city-finder.php?city=" + encodeURIComponent(city_text));
+        const data = await fetch("wp-content/plugins/weather-report-wordpress/includes/city-finder.php?city=" + encodeURIComponent(city_text));
 
         if (!data.ok) {
             throw new Error('Response status: ' + data.status);
